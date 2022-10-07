@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <link href="http://fonts.cdnfonts.com/css/monaco" rel="stylesheet">             
+  <link href="./assets/cupix-api.css" rel="stylesheet">
+  <script src="https://unpkg.com/fxjs/dist/fx.js"></script>
+  <script src="https://unpkg.com/fxdom@0.8.3/dist/fxd.js"></script>
+
+</head>
+
+<body>
+
+  <div class="server">
+    <select class="serverdropdown button dropdown">
+      <option value="https://api.cupix.works/api/v1">https://api.cupix.works/api/v1</option>
+      <option value="https://api.stage.cupix.works/api/v1">https://api.stage.cupix.works/api/v1</option>
+      <option value="https://api.dev.cupix-au.works/api/v1">https://api.dev.cupix.works/api/v1</option>
+      <option value="https://api.cupix-eu.works/api/v1">https://api.cupix-eu.works/api/v1</option>
+      <option value="https://api.cupix-au.works/api/v1">https://api.cupix-au.works/api/v1</option>
+    </select>
+  </div>
+
+
+<div class="path">
+  <select class="tagdropdown button dropdown">
+    <option class="default" value="" selected>Select Category</option>
+  </select>
+  <select class="pathdropdown button dropdown">
+    <option class="default" value="" selected>Select Path</option>
+  </select>
+  <select class="methoddropdown button dropdown">
+    <option class="default" value="" selected>Select REST method</option>
+  </select>
+  <div class="requestheader">
+    <label class="tokenlabel">x-cupix-auth : </label>
+    <input class="tokeninput" id="accesstoken" type="text" placeholder="Input your access_token">
+  </div>
+  <div class="params"></div>
+</div>
+
+<div class="output" id="console">
+  <pre id="json"></pre>
+  </div>
+
+
+</body>
+<script type="text/javascript" src="./assets/cupix-api.js"></script>
+
+</html>
