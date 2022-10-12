@@ -3,8 +3,9 @@
 
 ## It is playground can call cupix api.
 
-It use live server extension of vscode(https://github.com/ritwickdey/vscode-live-server-plus-plus).
+Play [here](https://rondoop5.github.io/cupix-api-playground/) to call cupix api.
 
-Click Go Live of bottom in vscode and play there.
+
+
 
 <img src="./example.png" width="100%"/>
