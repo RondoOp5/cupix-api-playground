@@ -7,4 +7,4 @@ It use live server extension of vscode(https://github.com/ritwickdey/vscode-live
 
 Click Go Live of bottom in vscode and play there.
 
-<img src="./example.png" width="40%"/>
+<img src="./example.png" width="100%"/>
