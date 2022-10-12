@@ -7,4 +7,4 @@ It use live server extension of vscode(https://github.com/ritwickdey/vscode-live
 
 Click Go Live of bottom in vscode and play there.
 
-<img src="https://github.com/RondoOp5/cupix-api-playground/blob/master/example.png" alt="drawing" width="40%">
+<img src="https://github.com/RondoOp5/cupix-api-playground/blob/master/example.png" width="500px"/>
