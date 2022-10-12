@@ -5,5 +5,6 @@
 
 It use live server extension of vscode(https://github.com/ritwickdey/vscode-live-server-plus-plus).
 
-Click Go Live of bottom in vscode.
+Click Go Live of bottom in vscode and play there.
 
+<img src="https://github.com/RondoOp5/cupix-api-playground/blob/master/example.png" alt="drawing" width="40%">
