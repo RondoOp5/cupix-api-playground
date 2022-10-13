@@ -221,7 +221,7 @@ const log = console.log;
     const requestByMethod = ([url, params, header]) => _.go(
         $('.methoddropdown'),
         $.val,
-        method => $[method](url, params, header)
+        method => $[method](url, params, header).catch(e => e)
     );
 
     const processResponse = res => _.go(
