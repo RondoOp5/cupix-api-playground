@@ -1,11 +1,3 @@
-
-const { L, C } = window._;
-const baseSel = method => (sel, parent = document) => parent[method](sel);
-$ = _.extend( baseSel('querySelector'), $);
-$.all = baseSel('querySelectorAll');
-const hi = a => (console.log(a), a);
-const log = console.log;
-
 (async () => {
 
     const resData = f => _.pipe(
@@ -13,7 +5,10 @@ const log = console.log;
         f
     );
 
-    const fetchApi = $.get(`./assets/cupix-api.json`, {}, {});
+    const fetchApi = _.go(
+        $.get(`./assets/cupix-api.json`, {}, {}),
+        resJSON
+    );
 
     const requestBodies = await _.go(
         fetchApi,
@@ -217,16 +212,21 @@ const log = console.log;
         obj => _.extend(headers, obj)
     );
 
-
+    
     const requestByMethod = ([url, params, header]) => _.go(
         $('.methoddropdown'),
         $.val,
-        method => $[method](url, params, header).catch(e => e)
-    );
+        method => $[method](url, params, header),
+        res => new Promise((resolve, reject) => {
+            res.ok ? _.go(res.json(), resj => resolve([res.status, resj])) : _.go(res.json(), resj => reject([res.status, resj]))
+        }).catch(a => a)
+        );
 
     const processResponse = res => _.go(
         res,
-        res => JSON.stringify(res, undefined, 2),
+        hi,
+        ([status, res]) => 
+        `Status Code ${status} : ${JSON.stringify(res, undefined, 2)}`,
         text => $.setText(text, $('.output #json'))
     );
 
