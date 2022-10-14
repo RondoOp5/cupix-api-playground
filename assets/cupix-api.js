@@ -136,10 +136,10 @@
                 <span class="pathin">(included in ${pathin})</span>`),
                 _.join('')
                 ) : '' }
-        <div class="requestbody">
+        ${requestBody ? `<div class="requestbody">
         <label class="requestbodylabel">Request body</label>
         ${
-            requestBody ? _.go(
+                _.go(
                 requestBody,
                 transformReqBody,
                 L.map(
@@ -155,9 +155,12 @@
                     )
                 ),
                 _.join('')
-            ) : ''
+            ) 
         }
-        </div>
+        <label class="requestbodyname">Request Custom Body</label>
+        <input class="requestcustombody" name="requestcustombody" type="text" placeholder="your custom object {key : value}">
+        </div>` : ''
+    }
         <button class="button" id="requestparams">Request this</button>
         </div>
         `
@@ -192,6 +195,21 @@
             createRequestBody
     );
 
+    const inputCustomBody = () => _.go(
+        $('.requestcustombody'),
+        $.val,
+        txt => {
+            let customBody = {};
+            try {
+                customBody = JSON.parse(txt);    
+            }
+            catch {
+                return customBody;
+            }
+            return customBody;
+        },
+    );
+
     const createRequestBody = body => _.go(
         $.all('.requestbody .requestbodyinput'),
         els => _.reduce(
@@ -201,7 +219,9 @@
                 ([qs, name]) => qs && (body[name] = qs),
                 _ => body
             ), {}, els),
-        resbody => _.extend(body, resbody)
+        resbody => _.extend(body, resbody),
+        resbody => _.extend(resbody, inputCustomBody()),
+        hi
     );
 
     const createHeader = headers => _.go(
