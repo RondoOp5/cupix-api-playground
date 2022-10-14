@@ -158,7 +158,7 @@
             ) 
         }
         <label class="requestbodyname">Request Custom Body</label>
-        <input class="requestcustombody" name="requestcustombody" type="text" placeholder="Your custom object { "key" : value, "key2" : value2, ... }">
+        <input class="requestcustombody" name="requestcustombody" type="text" placeholder="Your custom object { &quot;key&quot; : value, &quot;key2&quot; : value2, ... }">
         </div>` : ''
     }
         <button class="button" id="requestparams">Request this</button>
