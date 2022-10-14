@@ -198,7 +198,7 @@
 
     const inputCustomBody = () => _.go(
         $('.requestcustombody'),
-        $.val,
+        el => el ? $.val(el) : '',
         txt => {
             let customBody = {};
             try {
