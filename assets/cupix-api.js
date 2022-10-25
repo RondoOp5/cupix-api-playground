@@ -148,7 +148,7 @@
                         L.entries,
                         L.map(([name, {description, type}]) =>`<div class="description">${description ? description : ''}</div>
                         <label class="requestbodyname">${name}</label>
-                        <input class="requestbodyinput" name=${name} type="text" placeholder="(type:${type})">
+                        <input class="requestbodyinput" name=${name} type="text" bodytype="${type}" placeholder="(type:${type})">
                         <span class="pathin"></span>
                         `),
                         _.join(''),
@@ -211,13 +211,15 @@
         },
     );
 
+    const elWrap = el => $.attr('bodytype', el) == 'object' ? [JSON.parse($.val(el)), $.attr('name', el)] : [$.val(el), $.attr('name', el)];
+
     const createRequestBody = body => _.go(
         $.all('.requestbody .requestbodyinput'),
         els => _.reduce(
             (body, el) => _.go(
                 el,
-                el => [$.val(el), $.attr('name', el)],
-                ([qs, name]) => qs && (body[name] = qs),
+                elWrap,
+                ([value, key]) => value && (body[key] = value),
                 _ => body
             ), {}, els),
         resbody => _.extend(body, resbody),
