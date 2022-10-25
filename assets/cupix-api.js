@@ -135,7 +135,8 @@
                 <input class="paraminput" name=${name} pathin="${pathin}" type="text" placeholder="(type:${schema['items'] ? `${schema.type} of ${schema['items'].type}` : `${schema.type}`})">
                 <span class="pathin">(included in ${pathin})</span>`),
                 _.join('')
-                ) : '' }
+                ) : '' 
+            }
         ${requestBody ? `<div class="requestbody">
         <label class="requestbodylabel">Request body</label>
         ${
@@ -157,11 +158,10 @@
                 _.join('')
             ) 
         }
-        <div></div>
-        <label class="requestbodyname">Request Custom Body</label>
-        <input class="requestcustombody" name="requestcustombody" type="text" placeholder="Your custom object { &quot;key&quot; : value, &quot;key2&quot; : value2, ... }">
-        </div>` : ''
-    }
+        <div></div></div>` : ''
+         }
+         <label class="requestbodyname">Request Custom Body</label>
+         <input class="requestcustombody" name="requestcustombody" type="text" placeholder="Your custom object { &quot;key&quot; : value, &quot;key2&quot; : value2, ... }">
         <button class="button" id="requestparams">Request this</button>
         </div>
         `
