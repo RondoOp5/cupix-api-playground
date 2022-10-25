@@ -202,7 +202,7 @@
         txt => {
             let customBody = {};
             try {
-                customBody = JSON.parse(`${txt}`);    
+                customBody = JSON.parse(txt);    
             }
             catch {
                 return customBody;
@@ -211,7 +211,11 @@
         },
     );
 
-    const elWrap = el => $.attr('bodytype', el) == 'object' ? [JSON.parse(`${$.val(el)}`), $.attr('name', el)] : [$.val(el), $.attr('name', el)];
+    const elWrap = el => _.go(
+        el,
+        el => el ? $.val(el) : '',
+        txt => txt && $.attr('bodytype', el) == 'object' ? [JSON.parse(txt), $.attr('name', el)] : [txt, $.attr('name', el)]
+    );
 
     const createRequestBody = body => _.go(
         $.all('.requestbody .requestbodyinput'),
