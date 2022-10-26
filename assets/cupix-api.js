@@ -158,7 +158,7 @@
                 _.join('')
             ) 
         }
-        <div></div></div>` : ''
+        </div>` : '<div></div>'
          }
          <label class="requestbodyname">Request Custom Body</label>
          <input class="requestcustombody" name="requestcustombody" type="text" placeholder="Your custom object { &quot;key&quot; : value, &quot;key2&quot; : value2, ... }">
