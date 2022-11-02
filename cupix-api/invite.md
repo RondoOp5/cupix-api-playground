@@ -201,7 +201,7 @@ Status Code 200 : {
 
 ### Sample request
 ```js
-request.put(`https://api.cupix.works/api/v1/groups/<Group_Id>/add_users`, {
+request.put(`https://api.cupix.works/api/v1/groups/{id}/add_users`, {
         method: 'PUT',
         json: true,
         accept: 'application/json',
