@@ -7,7 +7,7 @@ Here, I will divide the case of sharing a project and the case of inviting users
 1. [Invite users to your team.](#invite-to-team)
 2. [Find the ids of the invited users.](#find-group_id-to-put-user_id-in)
 3. [Grant Project-Admin permission to users.](#add-a-user-to-a-specific-group)
-4. [Share permission on the project to users.](#share-permission-to-users-on-the-facility)
+4. [Share permission "F" on the project to users.](#share-permission-to-users-on-the-facility)
 
 #### Invite users as administrators
 1. [Invite users to your team.](#invite-to-team)
