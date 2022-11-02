@@ -8,4 +8,4 @@ Play [here](https://rondoop5.github.io/cupix-api-playground/cupix-api) to call c
 
 
 
-<img src="./example.png" width="100%"/>
+<img src="./cupix-api/example.png" width="100%"/>
