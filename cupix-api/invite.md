@@ -276,7 +276,7 @@ Status Code 200 : {
 | key    | string    | true    | facility_key to share |
 | user_ids   | array    | false    | Array of user ids to share the facility   |
 | group_ids   | array   | false    | Array of group ids to share the facility    |
-| emails    | array   | false   |  Array of user ids to share the facility, Server automatically sends invitation to emails  |
+| emails    | array   | false   |  Array of user emails to share the facility, Server automatically sends invitation to emails  |
 | permission    | string   | false    | What kind of permission to share, ex) "F"(Full), "RUC", "RC", "R"  |
 | send_notification    | boolean    | false   | Whether to send notification email    |
 | message    | string    | false    | Message to write in notification email   |
