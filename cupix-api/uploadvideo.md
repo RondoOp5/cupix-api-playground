@@ -158,26 +158,26 @@ The following is a sample code written in js.
 
 ### Sample request
 ```js
-    const streamUpload = (filType, fileSize, filePath, videoId, uploadUrl) => new Promise((resolve, reject) => {
-        
-        const uploadStream = request.put(uploadUrl, {headers: {"Content-Type" : filType, 'Content-Length' : fileSize, Accept: 'application/json'}} );
-        const readStream = createReadStream(filePath 
-       //     , { highWaterMark : 2 * 1024 * 1024 }
-            );
-        readStream.pipe(uploadStream);
-        uploadStream.on('complete', (res, body) => resolve(res));
-        uploadStream.on('error', e => {
-            try {
-                uploadStream.resume();            
-            }
-            catch {
-                console.log(`uploadstreamerror : ${e}`);
-                reject(e);
-            }
-        })
-    });
-	const size = await fs.stat(filePath).then(({size}) => size);
-	await streamUpload('insv', size, filePath, <Your_video_id>, <Your_upload_url>).then(console.log);
+const streamUpload = (filType, fileSize, filePath, videoId, uploadUrl) => new Promise((resolve, reject) => {
+    
+    const uploadStream = request.put(uploadUrl, {headers: {"Content-Type" : filType, 'Content-Length' : fileSize, Accept: 'application/json'}} );
+    const readStream = createReadStream(filePath 
+    //     , { highWaterMark : 2 * 1024 * 1024 }
+        );
+    readStream.pipe(uploadStream);
+    uploadStream.on('complete', (res, body) => resolve(res));
+    uploadStream.on('error', e => {
+        try {
+            uploadStream.resume();            
+        }
+        catch {
+            console.log(`uploadstreamerror : ${e}`);
+            reject(e);
+        }
+    })
+});
+const size = await fs.stat(filePath).then(({size}) => size);
+await streamUpload('insv', size, filePath, <Your_video_id>, <Your_upload_url>).then(console.log);
 ```
 
 
