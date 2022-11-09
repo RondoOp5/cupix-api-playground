@@ -318,7 +318,7 @@ request.put(`https://api.cupix.works/api/v1/captures/199991`, {
         upload_state: 'upload_done'
     },
     headers: {
-        'x-cupix-auth': access_token
+        'x-cupix-auth': <your_access_token>
     }
 }
 );
