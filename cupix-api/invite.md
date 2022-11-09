@@ -1,15 +1,18 @@
 # Invitations API
+
 Let's say you want to invite with user emails. When invitations are sent, users can create an account through the email they receive. However, the invited users may be granted to permission before creating an account. This document is explained that the series of processes of inviting users, putting them into groups, and granting permissions through the API.
 
 Here, I will divide the case of sharing a project and the case of inviting users and adding them with administrator permission.
 
 #### Sharing only project
+
 1. [Invite users to your team.](#invite-to-team)
 2. [Find the ids of the invited users.](#find-group_id-to-put-user_id-in)
 3. [Grant Project-Admin permission to users.](#add-a-user-to-a-specific-group)
 4. [Share permission "F" on the project to users.](#share-permission-to-users-on-the-facility)
 
 #### Invite users as administrators
+
 1. [Invite users to your team.](#invite-to-team)
 2. [Find the ids of the invited users.](#find-group_id-to-put-user_id-in)
 3. [Grant Administrator permission to users.](#add-a-user-to-a-specific-group)
@@ -20,15 +23,15 @@ These steps are necessary to open the **Capture Editor**. If you share only a pr
 
 `POST https://api.cupix.works/api/v1/teams/invitation`
 
-| Attribute  | 	Type  | Required  | 	Description |
-|:----------|:----------|:----------|:----------|
-| fields    | array of string   | true    | The field to receive as a response. pinned to user_emails here    |
-| user_emails    | array   | true    | user email to invite    |
+| Attribute   | Type            | Required | Description                                                    |
+| :---------- | :-------------- | :------- | :------------------------------------------------------------- |
+| fields      | array of string | true     | The field to receive as a response. pinned to user_emails here |
+| user_emails | array           | true     | user email to invite                                           |
 
 <br>
 
-
 ### Sample request
+
 ```js
 request.post(`https://api.cupix.works/api/v1/teams/invitation`, {
         method: 'POST',
@@ -39,14 +42,15 @@ request.post(`https://api.cupix.works/api/v1/teams/invitation`, {
         },
         body: {
             user_emails:["test@cupix.com", "test2@cupix.com"]
-        }, 
+        },
 	headers: {
             'x-cupix-auth': <your_access_token>
         }
     })
 ```
 
-### Example responses
+### Example response
+
 ```
 Status Code 200 : {
   "result": {
@@ -58,19 +62,20 @@ Status Code 200 : {
   "message": null
 }
 ```
+
 <br>
 
 ## Find user_id by email
 
 `GET https://api.cupix.works/api/v1/users/find_by_email`
 
-| Attribute  | 	Type  | Required  | 	Description |
-|:----------|:----------|:----------|:----------|
-| fields    | array of string   | true    | id, state, last_sign_in_at, avatar_urls, firstname, lastname, locale, email    |
-| email    | string    | true    | Email to find user_id    |
-
+| Attribute | Type            | Required | Description                                                                 |
+| :-------- | :-------------- | :------- | :-------------------------------------------------------------------------- |
+| fields    | array of string | true     | id, state, last_sign_in_at, avatar_urls, firstname, lastname, locale, email |
+| email     | string          | true     | Email to find user_id                                                       |
 
 ### Sample request
+
 ```js
 request.get(`https://api.cupix.works/api/v1/users/find_by_email`, {
         method: 'GET',
@@ -85,7 +90,8 @@ request.get(`https://api.cupix.works/api/v1/users/find_by_email`, {
     })
 ```
 
-### Example responses
+### Example response
+
 ```
 Status Code 200 : {
   "result": {
@@ -101,18 +107,18 @@ Status Code 200 : {
 }
 ```
 
-
 ## Find group_id to put user_id in
+
 `GET https://api.cupix.works/api/v1/groups`
 
-| Attribute  | 	Type  | Required  | 	Description |
-|:----------|:----------|:----------|:----------|
-| fields    | array of string   | true    | id, name, group_type, user, team, users_count, created_at, updated_at   |
-| page   | integer    | false   | page index to search per page    |
-| per_page    | integer    | false   | Number of items to GET per page    |
-
+| Attribute | Type            | Required | Description                                                           |
+| :-------- | :-------------- | :------- | :-------------------------------------------------------------------- |
+| fields    | array of string | true     | id, name, group_type, user, team, users_count, created_at, updated_at |
+| page      | integer         | false    | page index to search per page                                         |
+| per_page  | integer         | false    | Number of items to GET per page                                       |
 
 ### Sample request
+
 ```js
 request.get(`https://api.cupix.works/api/v1/groups`, {
         method: 'GET',
@@ -128,6 +134,7 @@ request.get(`https://api.cupix.works/api/v1/groups`, {
 ```
 
 ### Example responses
+
 ```
 Status Code 200 : {
   "result": {
@@ -189,17 +196,19 @@ Status Code 200 : {
 <br>
 
 ## Add a user to a specific group
+
 `PUT https://api.cupix.works/api/v1/groups/{id}/add_users`
 
-| Attribute  | 	Type  | Required  | 	Description |
-|:----------|:----------|:----------|:----------|
-| fields    | array of string   | true    |id,name,group_type,user,team,created_at,updated_at,users_count|
-| id   | integer    | true   | Group ID    |
-| user_ids    | array    | false   | Array of user_ids to add to the group |
+| Attribute | Type            | Required | Description                                                    |
+| :-------- | :-------------- | :------- | :------------------------------------------------------------- |
+| fields    | array of string | true     | id,name,group_type,user,team,created_at,updated_at,users_count |
+| id        | integer         | true     | Group ID                                                       |
+| user_ids  | array           | false    | Array of user_ids to add to the group                          |
 
 <br>
 
 ### Sample request
+
 ```js
 request.put(`https://api.cupix.works/api/v1/groups/{id}/add_users`, {
         method: 'PUT',
@@ -217,7 +226,8 @@ request.put(`https://api.cupix.works/api/v1/groups/{id}/add_users`, {
     })
 ```
 
-### Example responses
+### Example response
+
 ```js
 Status Code 200 : {
   "result": {
@@ -269,21 +279,19 @@ Status Code 200 : {
 
 `PUT https://api.cupix.works/api/v1/facilities/{key}/share`
 
-
-| Attribute  | 	Type  | Required  | 	Description |
-|:----------|:----------|:----------|:----------|
-| fields   | array of string    | true    | id,email,firstname,lastname,avatar_urls,type,permission,user,group,state,inheritedFrom    |
-| key    | string    | true    | facility_key to share |
-| user_ids   | array    | false    | Array of user ids to share the facility   |
-| group_ids   | array   | false    | Array of group ids to share the facility    |
-| emails    | array   | false   |  Array of user emails to share the facility, Server automatically sends invitation to emails  |
-| permission    | string   | false    | What kind of permission to share, ex) "F"(Full), "RUC", "RC", "R"  |
-| send_notification    | boolean    | false   | Whether to send notification email    |
-| message    | string    | false    | Message to write in notification email   |
-
-
+| Attribute         | Type            | Required | Description                                                                                 |
+| :---------------- | :-------------- | :------- | :------------------------------------------------------------------------------------------ |
+| fields            | array of string | true     | id,email,firstname,lastname,avatar_urls,type,permission,user,group,state,inheritedFrom      |
+| key               | string          | true     | facility_key to share                                                                       |
+| user_ids          | array           | false    | Array of user ids to share the facility                                                     |
+| group_ids         | array           | false    | Array of group ids to share the facility                                                    |
+| emails            | array           | false    | Array of user emails to share the facility, Server automatically sends invitation to emails |
+| permission        | string          | false    | What kind of permission to share, ex) "F"(Full), "RUC", "RC", "R"                           |
+| send_notification | boolean         | false    | Whether to send notification email                                                          |
+| message           | string          | false    | Message to write in notification email                                                      |
 
 ### Sample request
+
 ```js
 request.put(`https://api.cupix.works/api/v1/facilities/{key}/share`, {
         method: 'PUT',
@@ -306,7 +314,8 @@ request.put(`https://api.cupix.works/api/v1/facilities/{key}/share`, {
     })
 ```
 
-### Example responses
+### Example response
+
 ```js
 Status Code 200 : {
   "result": {
@@ -334,15 +343,3 @@ Status Code 200 : {
   "session": null
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-

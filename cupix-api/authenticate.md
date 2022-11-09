@@ -4,23 +4,22 @@
 
 User could be issued an access_token through authentication, and this token should be value of **x-cupix-auth** key included in the header of almost every request.
 
-Only two methods are described: 
+Only two methods are described:
+
 1. [authentication with email and password](#authenticate-with-email)
 2. [re-authentication with refresh_token received during authentication.](#authenticate-with-refresh_token)
 
-**The issued *access_token* can be used for 30 minutes and can be reissued and renewed through *refresh_token*. <br>
-*refresh_token* can be used for a week without renewing.**
+**The issued _access_token_ can be used for 30 minutes and can be reissued and renewed through _refresh_token_. <br>
+_refresh_token_ can be used for a week without renewing.**
 
-
-
-| Attribute  | 	Type  | Required  | 	Description |
-|:----------|:----------|:----------|:----------|
-| fields    | array of string    | true   | id,access_token,refresh_token,access_token_expires_at,refresh_token_expires_at    |
-| grant_type    | string  | false    | email, refresh_token    |
-| team_domain    | string   | false   | domain to authenticate    |
-| email    | string  | false    |  email which user sign in with   |
-| password  | string  | false   | password which user sign in with   |
-| refresh_token  | string | false    | refresh_token received during authentication   |
+| Attribute     | Type            | Required | Description                                                                    |
+| :------------ | :-------------- | :------- | :----------------------------------------------------------------------------- |
+| fields        | array of string | true     | id,access_token,refresh_token,access_token_expires_at,refresh_token_expires_at |
+| grant_type    | string          | false    | email, refresh_token                                                           |
+| team_domain   | string          | false    | domain to authenticate                                                         |
+| email         | string          | false    | email which user sign in with                                                  |
+| password      | string          | false    | password which user sign in with                                               |
+| refresh_token | string          | false    | refresh_token received during authentication                                   |
 
 <br>
 
@@ -41,7 +40,6 @@ request.post(`https://api.cupix.works/api/v1/authenticate`, {
     }
 })
 ```
-
 
 ### Example responses
 
@@ -92,7 +90,8 @@ request.post(`https://api.cupix.works/api/v1/authenticate`, {
     }
 })
 ```
-### Example responses
+
+### Example response
 
 ```js
 {
@@ -123,5 +122,3 @@ request.post(`https://api.cupix.works/api/v1/authenticate`, {
   "message": null
 }
 ```
-
-
