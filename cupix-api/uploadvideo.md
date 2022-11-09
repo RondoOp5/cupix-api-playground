@@ -331,12 +331,12 @@ request.put(`https://api.cupix.works/api/v1/captures/199991`, {
 {
   "result": {
     "data": {
-      "id": "214797",
+      "id": "199991",
       "type": "capture",
       "attributes": {
        
-        "id": 214797,
-        "name": "Area [13:46:35]",
+        "id": 199991,
+        "name": "Video [13:46:35]",
         "state": "queued",
         "upload_state": "upload_done",
 
