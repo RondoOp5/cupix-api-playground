@@ -13,7 +13,7 @@ If the size of one video file you want to upload is less than 5 GB
 
 
  
-If the size of one video file you want to upload is larger than 5GB
+If the size of one video file you want to upload is larger than 5 GB
 
 1. [Get all ids of videos that are in synced state.](#get-all-video-ids-and-upload_urls)
 2. [Get upload credential information required to upload each video by aws s3 sdk.](#get-upload-credential)
