@@ -29,7 +29,7 @@ Before start, you need an authentication key. You can see an [in this document](
 First, to upload, you need to know the basic information required for upload and the video id on the server.
 The required calls are:
 
-`GET https://api.cupix.works/api/v1/panos/upload_candidates`
+`GET https://api.cupix.works/api/v1/videos/upload_candidates`
 
 | Attribute | Type   | Required | Description                                                                    |
 |:----------|:----------|:----------|:----------|
@@ -46,7 +46,7 @@ But there is a important variable to keep in mind here. This is the id of the Ar
 
 ### Sample request
 ```js
-request.get(`https://api.cupix.works/api/v1/panos/upload_candidates`, {
+request.get(`https://api.cupix.works/api/v1/videos/upload_candidates`, {
     method:'GET',
     Accept: 'application/json',
     json: true, 
