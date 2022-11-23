@@ -31,7 +31,7 @@ request.get(`https://api.cupix.works/api/v1/meshes/185`, {
 
 ### Sample response
 
-The *wtm* of *user_prop* is transform matrix information, and user_prop is not sent if the mesh is not transformed in the Capture editor.
+The *wtm* of *user_prop* is transform matrix information, and *user_prop* is not sent if the mesh is not transformed in the Capture editor.
 
 ```js
 Status Code 200 : {
