@@ -33,6 +33,7 @@ request.get(`https://api.cupix.works/api/v1/levels`, {
 })
 ```
 
+### Sample response
 
 ```js
 Status Code 200 : {
