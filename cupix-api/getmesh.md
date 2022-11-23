@@ -1,6 +1,6 @@
 ## Get mesh information
 
-This endpoint provides meta and transform matrix about the mesh on the CupixWorks and the url to download the raw.
+This endpoint provides meta and transform matrix about the mesh on the CupixWorks and the url to download raw.
 
 `GET https://api.cupix.works/api/v1/meshes | https://api.cupix.works/api/v1/meshes/{id}`
 
