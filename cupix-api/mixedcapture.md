@@ -93,7 +93,7 @@ request.post(`https://api.cupix.works/api/v1/videos`, {
         Accept: 'application/json',
         json: true,
         qs : { 
-            fields: 'id,name,state,resource_state,upload_url,capture_id,pts_unit'
+            fields: 'id,name,state'
             },
         body : {
             name: <video file name>,
