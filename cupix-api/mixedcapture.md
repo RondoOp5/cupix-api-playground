@@ -4,9 +4,9 @@ This document outlines mixed-capture uploads.
 
 
 The overall flow is like this.
-1. Create a new capture with material: "video-pano"
-2. Add "pts_unit": ms when creating video
-3. Add timestamp property when creating pano
+1. [Create a new capture with material: "video-pano"](#create-video-pano-type-capture)
+2. [Add "pts_unit": ms when creating video](#create-a-video-model-on-the-server)
+3. [Add "timestamp" property when creating pano](#create-a-pano-model-on-the-server)
 4. Upload video and pano(still image) file data in the same way as the existing method
 5. check_uploading for each video and pano
 6. "upload_done" the created capture
