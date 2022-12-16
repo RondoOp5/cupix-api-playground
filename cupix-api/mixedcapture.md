@@ -126,7 +126,7 @@ Status Code 200 : {
 
 ## Create a pano model on the server
 
-`POST https://api.cupix.works/api/v1/videos`
+`POST https://api.cupix.works/api/v1/panos`
 
 We now need to tell which timestamp on the video the image to embed exists.
 
