@@ -7,9 +7,12 @@ The overall flow is like this.
 1. [Create a new capture with material: "video-pano"](#create-video-pano-type-capture)
 2. [Add "pts_unit": ms when creating video](#create-a-video-model-on-the-server)
 3. [Add "timestamp" property when creating pano](#create-a-pano-model-on-the-server)
-4. Upload video and pano(still image) file data in the same way as the existing method
+4. Upload video and pano(still image) file data 
 5. check_uploading for each video and pano
 6. "upload_done" the created capture
+
+1,2,3 are just developed by us, and 4,5,6 are exactly the same as the old process. 
+So I'll just explain 1,2,3.
 
 ## Create video-pano type capture
 
