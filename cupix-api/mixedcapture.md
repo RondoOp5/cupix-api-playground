@@ -130,9 +130,8 @@ Status Code 200 : {
 
 We now need to tell which timestamp on the video the image to embed exists.
 
-**timestamp** is play time, not recording time. 
+**timestamp** is just the playback time(ms) of the 5fps video.
 
-If you want to play a video recorded at 5fps at 30fps and insert a pano at 30 seconds based on the recording time, **timestamp** should exceed 5000ms.
 
 | Attribute | Type   | Required | Description     |
 |:----------|:----------|:----------|:----------|
