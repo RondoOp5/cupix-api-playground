@@ -121,7 +121,7 @@ If you open geo_coordinate_url, it looks like this.
 ```
 
 Each pano's geo_coordinate.pos is the pano's x, y, z information, and x, y are needed to calculate lat and lon.
-Since these x, y are relative coordinates (meter) to (lat, lon) of the Project Geocoordinate, they cannot be converted directly to lat, lon.
+Since these x, y are relative coordinates[meter] to (lat, lon) of the Project Geocoordinate, they cannot be converted directly to lat, lon.
 Therefore, it is necessary to write a function to be converted. The function might look like this.
 
 ```js
