@@ -87,7 +87,7 @@
             _ => $('select.tagdropdown'),
             methodObject,
             obj => obj[$.val($('select.methoddropdown'))],
-            displayParams,
+            obj => obj == null ? displayParams({summary:'test', parameters:[], requestBody:null}) : displayParams(obj),
             $.el,
             $.appendTo($('.params'))
         ))
@@ -95,8 +95,8 @@
 
     const lastItem = str => _.go(
         str,
-        str => str.split('/'),
-        arr => arr[arr.length - 1]
+        str => str == undefined ? [] : str.split('/'),
+        arr => arr == [] ? null : arr[arr.length - 1]
     );
 
     const transform = schema => _.go(
@@ -113,7 +113,7 @@
         body => body['content']['application/json']['schema']['$ref'],
         lastItem,
         item => schemas[item],
-        schema => schema.hasOwnProperty('properties') ? [schema.properties] : transform(schema)      
+        schema => schema == undefined ? null : schema.hasOwnProperty('properties') ? [schema.properties] : transform(schema)      
     );
     // key로 allOf를 가질경우에 대하여 처리가 필요
 
@@ -245,7 +245,7 @@
         $.val,
         method => $[method](url, params, header),
         res => new Promise((resolve, reject) => {
-            res.ok ? _.go(res.json(), resj => resolve([res.status, resj])) : _.go(res.json(), resj => reject([res.status, resj]))
+            res.ok ? _.go(res.json(), resj => resolve([res.status, resj])).catch(() => resolve([res.status, null])) : _.go(res.json(), resj => reject([res.status, resj]));
         }).catch(a => a)
         );
 
