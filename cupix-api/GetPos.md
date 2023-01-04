@@ -14,13 +14,13 @@ The workflow is as follows.
 
 Through this call, you can get the date of Capture (called a record in server terminology), which means a collection of Cupix areas, and geo_coordinate_url, which is a url to download a json file containing the location information of all panos in that record.
 
-| Attribute | Type            | Required | Description                                                                                            |
-| :-------- | :-------------- | :------- | :----------------------------------------------------------------------------------------------------- |
-| fields    | array of string | true     | id,**geo_coordinate_url**facility,permission,meta,name,created_at,updated_at,**captured_at**,user,note |
-| from_at   | string          | false    | ex) 2023-01-10T15:00:00.000Z                                                                           |
-| to_at     | string          | false    | ex) 2023-01-12T14:59:59.999Z                                                                           |
-| page      | integer         | false    | page index to search per page                                                                          |
-| per_page  | integer         | false    | Number of items to GET per page                                                                        |
+| Attribute | Type            | Required | Description                                                                                             |
+| :-------- | :-------------- | :------- | :------------------------------------------------------------------------------------------------------ |
+| fields    | array of string | true     | id,**geo_coordinate_url**,facility,permission,meta,name,created_at,updated_at,**captured_at**,user,note |
+| from_at   | string          | false    | ex) 2023-01-10T15:00:00.000Z                                                                            |
+| to_at     | string          | false    | ex) 2023-01-12T14:59:59.999Z                                                                            |
+| page      | integer         | false    | page index to search per page                                                                           |
+| per_page  | integer         | false    | Number of items to GET per page                                                                         |
 
 ### Sample request
 
@@ -135,15 +135,11 @@ function(project_lat, project_lon, project_bearing, pano_x, pano_y) {
 
 The conversion formula uses the Haversine formula, and if you want to implement it yourself, please refer to [this link](https://en.wikipedia.org/wiki/Haversine_formula) for implementation.
 
-You can also implement the corresponding function using [Turf library](https://turfjs.org/docs/). But a conversion process is required to use this library. Convert and put the input like this.
+You can also implement the corresponding function using [Turf library](https://turfjs.org/docs/#destination). But a conversion process is required to use this library. Convert and put the input like this.
 
 ```
-function turf_library_function(pano_distance, bearing) {
-// pano_distance : meter
-// bearing : clockwise rotation angle relative to true north direction of base bearing + position
-	...
-	return pano_location:[lat, lon]
-
-}
-
+turf.destination(origin, distance, bearing, option) => pano_location:[lat, lon]
+// origin : {lat, lon} of Project Geolocation
+// distance : distance of (0, 0) ~ (pano_x, pano_y) [meter]
+// bearing : Bearing obtained from Get facility, it means clockwise rotation angle relative to true north direction of base bearing + position
 ```
