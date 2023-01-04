@@ -139,7 +139,7 @@ You can also implement the corresponding function using [Turf library](https://t
 
 ```
 turf.destination(origin, distance, bearing, option) => pano_location:[lat, lon]
-// origin : {lat, lon} of Project Geolocation
-// distance : distance of (0, 0) ~ (pano_x, pano_y) [meter]
+// origin : {lat, lon} of Project Geocoordinate obtained from Get facility
+// distance : distance of (0, 0) ~ (pano_x, pano_y) [meter] pano_x, pano_y are obtained from geo_coordinate_url.json
 // bearing : Bearing obtained from Get facility, it means clockwise rotation angle relative to true north direction of base bearing + position
 ```
