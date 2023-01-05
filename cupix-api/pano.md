@@ -20,7 +20,7 @@ request.get(`https://api.cupix.works/api/v1/panos`, {
     json: true,
     qs : {
             fields : 'id,origin',
-		capture_id: 226700
+	capture_id: 226700
     },
     headers: {
     'x-cupix-auth' : <your_access_token>
