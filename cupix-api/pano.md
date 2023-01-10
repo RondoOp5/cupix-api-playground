@@ -131,7 +131,8 @@ Status Code 200 : {
 
 ## Publish or unpublish Pano
 
-`PUT https://api.cupix.works/api/v1/panos/{id}/publish OR DELETE https://api.cupix.works/api/v1/panos/{id}/publish`
+`PUT https://api.cupix.works/api/v1/panos/{id}/publish` 
+`DELETE https://api.cupix.works/api/v1/panos/{id}/publish`
 
 You can publish/unpublish pano with the above call, and you can know whether it has been published/unpublished with the *published_at* value of the response. If *published_at* is null, it is unpublished, and if *published_at* has some value, it is published.
 
